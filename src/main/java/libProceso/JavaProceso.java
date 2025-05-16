@@ -1,4 +1,4 @@
-package ejemplojni.lib;
+package libProceso;
 
 /**
  *  Clase que representa las funciones de la biblioteca dinamica JNI
