@@ -3,17 +3,14 @@ package ejemplojni.lib;
 /**
  *  Clase que representa las funciones de la biblioteca dinamica JNI
  */
-public class JavaCalculator {
+public class JavaProceso {
 
-    public native int sum(int a, int b);
+    public native String algoritmo_SJF_no_expulsivo(String json);
+    public native String algoritmo_SJF_expulsivo(String json);
 
-    public native int multiply(int a, int b);
-
-    public native float sum(float a, float b);
-
-    public JavaCalculator() {
+    public JavaProceso() {
         try {
-            System.loadLibrary("javacalculator");
+            System.loadLibrary("sjf");
             System.out.println("Biblioteca cargada exitosamente!");
         } catch (UnsatisfiedLinkError e) {
             System.err.println("Carga de la biblioteca fallida: " + e.getMessage());

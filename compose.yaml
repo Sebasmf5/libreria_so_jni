@@ -1,8 +1,8 @@
 services:
   spring-jni:
-    image: 'alvarosalazar/spring-jni:latest'
+    image: 'sebasmo/libreria_so_jni:latest'
     ports:
-      - '8080:8080'
+      - '8083:8080'
     networks:
       - red-backend-app
 networks:
