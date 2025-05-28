@@ -1,6 +1,6 @@
 services:
   spring-jni:
-    image: 'sebasmo/libreria_so_jni:latest'
+    image: 'sebasmo/lib-so-sjf:latest'
     ports:
       - '8083:8080'
     networks:

@@ -1,6 +1,6 @@
 package com.denkitronik.springbootjni;
 
-import ejemplojni.lib.JavaProceso;
+import libProceso.JavaProceso;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -30,6 +30,4 @@ public class JNIRestController {
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(resultadoJson);
     }
-}
-
 }
