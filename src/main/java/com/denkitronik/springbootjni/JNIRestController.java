@@ -14,22 +14,22 @@ public class JNIRestController {
         this.proceso_SJF  = new JavaProceso();
     }
 
-    @PostMapping("/sjf/expulsivo")
-    public ResponseEntity<String> ejecutarSJFExpulsivo(@RequestBody String jsonInput) {
-        String resultadoJson = proceso_SJF.algoritmo_SJF_no_expulsivo(jsonInput);
-        return ResponseEntity
-                .ok()
+    @PostMapping("/sjf")
+    public ResponseEntity<String> ejecutarSJF(
+            @RequestParam(name = "expulsivo", defaultValue = "false") boolean expulsivo,
+            @RequestBody String jsonInput) {
+        
+        String resultadoJson;
+        if (expulsivo) {
+            resultadoJson = proceso_SJF.algoritmo_SJF_expulsivo(jsonInput);
+        } else {
+            resultadoJson = proceso_SJF.algoritmo_SJF_no_expulsivo(jsonInput);
+        }
+        
+        return ResponseEntity.ok()
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(resultadoJson);
     }
-
-    @PostMapping("/sjf/no-expulsivo")
-    public ResponseEntity<String> ejecutarSJFNoExpulsivo(@RequestBody String jsonInput) {
-        String resultadoJsonNoexpulsivo = proceso_SJF.algoritmo_SJF_no_expulsivo(jsonInput);
-        return ResponseEntity
-                .ok()
-                .contentType(MediaType.APPLICATION_JSON)
-                .body(resultadoJsonNoexpulsivo);
-    }
+}
 
 }
